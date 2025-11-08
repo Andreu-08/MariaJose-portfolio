@@ -7,19 +7,15 @@ import PaginaPrincipal from './views/PaginaPrincipal.vue'
 
 <template>
   <!-- Contenedor principal con altura completa y fondo degradado -->
-  <div class="min-h-screen flex flex-col bg-linear-to-br from-steel-50 via-white to-steel-100">
-    
+  <div class="min-h-screen flex flex-col bg-steel-50">
     <!-- Cabecera del sitio (fija) -->
     <Header />
-    
     <!-- Contenido principal: todas las secciones del portfolio -->
     <main class="flex-1">
       <PaginaPrincipal />
     </main>
-    
     <!-- Pie de página -->
     <Footer />
-    
   </div>
 </template>
 

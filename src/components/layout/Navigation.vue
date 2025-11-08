@@ -1,56 +1,123 @@
 <template>
-  <nav class="py-6">
+  <nav class="py-3 md:py-6 lg:py-8 px-4 md:px-12 lg:px-16">
     <div class="flex items-center justify-between">
       
-      <!-- ===== LOGO ===== -->
-      <!-- Enlace a inicio con logo animado -->
-      <a 
-        href="#inicio" 
-        class="flex items-center gap-3 group scroll-smooth"
-      >
+      <!-- Logo y nombre con enlace a inicio -->
+      <a href="#inicio" class="flex items-center gap-2 md:gap-4 group">
+        
+        <!-- Logo con efecto hover -->
         <div class="relative">
-          <!-- Círculo de fondo que aparece al hover -->
-          <div class="absolute inset-0 bg-steel-100 rounded-full scale-0 group-hover:scale-110 transition-transform duration-300 ease-out"></div>
-          
-          <!-- Imagen del logo (gota de agua) -->
+          <div class="absolute inset-0 bg-steel-100 rounded-full scale-0 group-hover:scale-110 transition-transform duration-500 ease-out"></div>
           <img 
             :src="logoGota" 
-            alt="Logo María José - Gota de agua" 
-            class="h-24 w-24 relative z-10 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
+            alt="Logo María José" 
+            class="h-12 w-12 md:h-24 md:w-24 lg:h-32 lg:w-32 relative z-10 transition-transform duration-500 ease-out group-hover:scale-110 group-hover:rotate-6"
           />
+        </div>
+        
+        <!-- Nombre con efecto hover -->
+        <div class="transition-all duration-500 ease-out group-hover:translate-x-1">
+          <p class="font-bold leading-tight">
+            <span class="text-steel-500 text-base md:text-2xl lg:text-3xl xl:text-4xl transition-colors duration-500 ease-out group-hover:text-steel-600">
+              María José
+            </span>
+            <span class="text-steel-900 text-base md:text-2xl lg:text-3xl xl:text-3xl transition-colors duration-500 ease-out group-hover:text-steel-800">
+              Muñoz Aroca
+            </span>
+          </p>
         </div>
       </a>
 
-      <!-- ===== MENÚ DE NAVEGACIÓN ===== -->
-      <ul class="flex items-center gap-2">
-        <!-- Enlaces de navegación por secciones -->
-        <li><NavLink seccion="#inicio">Inicio</NavLink></li>
-        <li><NavLink seccion="#sobre-mi">Sobre Mí</NavLink></li>
-        <li><NavLink seccion="#proyectos">Proyectos</NavLink></li>
-        <li><NavLink seccion="#articulos">Artículos</NavLink></li>
-        <li><NavLink seccion="#formacion">Formación</NavLink></li>
-        
-        <!-- Botón de contacto (CTA) -->
+      <!-- Menú desktop -->
+      <ul class="hidden md:flex items-center gap-2 lg:gap-3">
+        <li><NavLink seccion="#inicio" :activa="seccionActiva === 'inicio'">Inicio</NavLink></li>
+        <li><NavLink seccion="#sobre-mi" :activa="seccionActiva === 'sobre-mi'">Sobre Mí</NavLink></li>
+        <li><NavLink seccion="#proyectos" :activa="seccionActiva === 'proyectos'">Proyectos</NavLink></li>
+        <li><NavLink seccion="#articulos" :activa="seccionActiva === 'articulos'">Artículos</NavLink></li>
+        <li><NavLink seccion="#formacion" :activa="seccionActiva === 'formacion'">Formación</NavLink></li>
         <li>
-          <a 
-            href="#contacto" 
-            class="px-4 py-2 text-sm font-medium bg-steel-600 text-white rounded-lg hover:bg-steel-700 shadow-sm hover:shadow-md transition-all duration-200 scroll-smooth"
-          >
-            Contacto
+          <a href="#contacto" :class="claseBotonContacto">
+            <span :class="claseBrilloContacto" />
+            <span class="relative z-10">Contacto</span>
           </a>
         </li>
       </ul>
+
+      <!-- Botón hamburguesa móvil -->
+      <button
+        @click="menuAbierto = !menuAbierto"
+        class="md:hidden flex flex-col gap-1.5 p-2 rounded-lg hover:bg-steel-50 transition-colors duration-300 ease-out"
+        aria-label="Menú de navegación"
+      >
+        <span class="w-6 h-0.5 bg-steel-700 rounded-full transition-all duration-300 ease-out" :class="menuAbierto ? 'rotate-45 translate-y-2' : ''"></span>
+        <span class="w-6 h-0.5 bg-steel-700 rounded-full transition-all duration-300 ease-out" :class="menuAbierto ? 'opacity-0' : ''"></span>
+        <span class="w-6 h-0.5 bg-steel-700 rounded-full transition-all duration-300 ease-out" :class="menuAbierto ? '-rotate-45 -translate-y-2' : ''"></span>
+      </button>
       
     </div>
+
+    <!-- Menú móvil desplegable -->
+    <MenuMovil 
+      :menuAbierto="menuAbierto" 
+      :seccionActiva="seccionActiva"
+      @cerrar="menuAbierto = false" 
+    />
   </nav>
 </template>
 
 <script setup>
-// Importar imagen del logo
-import logoGota from '../../assets/images/logo-gota-boton-sin-fondo.png'
-// Componente reutilizable para enlaces de navegación
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 import NavLink from '../ui/NavLink.vue'
+import MenuMovil from '../ui/MenuMovil.vue'
+import logoGota from '../../assets/images/logo-gota-boton-sin-fondo.png'
+
+// ===== CONFIGURACIÓN =====
+const SECCIONES = ['inicio', 'sobre-mi', 'proyectos', 'articulos', 'formacion', 'contacto']
+const OFFSET_HEADER = 150
+const TRANSICION_LENTA = 'duration-500 ease-out'
+
+// ===== ESTADO REACTIVO =====
+const menuAbierto = ref(false)
+const seccionActiva = ref('inicio')
+
+// ===== MÉTODOS =====
+const detectarSeccion = () => {
+  const seccionVisible = SECCIONES.find(seccion => {
+    const elemento = document.getElementById(seccion)
+    if (!elemento) return false
+    
+    const { top, bottom } = elemento.getBoundingClientRect()
+    return top <= OFFSET_HEADER && bottom >= OFFSET_HEADER
+  })
+  
+  if (seccionVisible) {
+    seccionActiva.value = seccionVisible
+  }
+}
+
+// ===== CLASES COMPUTADAS =====
+const claseBotonContacto = computed(() => [
+  'relative px-4 py-2 text-sm lg:text-base font-medium rounded-lg text-white overflow-hidden transition-all',
+  TRANSICION_LENTA,
+  seccionActiva.value === 'contacto' 
+    ? 'bg-steel-700 shadow-lg scale-105 animate-pulse-subtle' 
+    : 'bg-steel-600 hover:bg-steel-700 hover:shadow-md hover:-translate-y-0.5'
+])
+
+const claseBrilloContacto = computed(() => [
+  'absolute inset-0 bg-white/10 transition-opacity',
+  TRANSICION_LENTA,
+  seccionActiva.value === 'contacto' ? 'opacity-100' : 'opacity-0'
+])
+
+// ===== LIFECYCLE HOOKS =====
+onMounted(() => {
+  detectarSeccion()
+  window.addEventListener('scroll', detectarSeccion)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', detectarSeccion)
+})
 </script>
 
-<style scoped>
-</style>
