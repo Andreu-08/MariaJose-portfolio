@@ -1,1 +1,16 @@
 @import "tailwindcss";
+
+/* Paleta de colores Steel Blue */
+:root {
+  --steel-50: #F4F7FB;
+  --steel-100: #E8EEF6;
+  --steel-200: #CCDBEB;
+  --steel-300: #9FBEDA;
+  --steel-400: #6C9CC4;
+  --steel-500: #5389B7;
+  --steel-600: #376592;
+  --steel-700: #2D5277;
+  --steel-800: #294663;
+  --steel-900: #263C54;
+  --steel-950: #192738;
+}
