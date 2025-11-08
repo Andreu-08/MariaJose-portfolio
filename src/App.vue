@@ -1,19 +1,31 @@
 <script setup>
+// Componentes de diseño principal
 import Header from './components/layout/Header.vue'
 import Footer from './components/layout/Footer.vue'
+import PaginaPrincipal from './views/PaginaPrincipal.vue'
 </script>
 
 <template>
-  <div class="min-h-screen flex flex-col bg-linear-to-br from-teal-50 via-white to-green-50">
+  <!-- Contenedor principal con altura completa y fondo degradado -->
+  <div class="min-h-screen flex flex-col bg-linear-to-br from-steel-50 via-white to-steel-100">
+    
+    <!-- Cabecera del sitio (fija) -->
     <Header />
     
+    <!-- Contenido principal: todas las secciones del portfolio -->
     <main class="flex-1">
-      <router-view />
+      <PaginaPrincipal />
     </main>
     
+    <!-- Pie de página -->
     <Footer />
+    
   </div>
 </template>
 
-<style scoped>
+<style>
+/* Configuración global para navegación suave */
+html {
+  scroll-behavior: smooth;
+}
 </style>

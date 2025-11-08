@@ -1,74 +1,55 @@
 <template>
-  <nav class="py-4">
+  <nav class="py-6">
     <div class="flex items-center justify-between">
-      <!-- Logo / Nombre -->
-      <router-link to="/" class="text-2xl font-bold text-gray-800 hover:text-teal-600 transition-colors">
-        María José
-      </router-link>
+      
+      <!-- ===== LOGO ===== -->
+      <!-- Enlace a inicio con logo animado -->
+      <a 
+        href="#inicio" 
+        class="flex items-center gap-3 group scroll-smooth"
+      >
+        <div class="relative">
+          <!-- Círculo de fondo que aparece al hover -->
+          <div class="absolute inset-0 bg-steel-100 rounded-full scale-0 group-hover:scale-110 transition-transform duration-300 ease-out"></div>
+          
+          <!-- Imagen del logo (gota de agua) -->
+          <img 
+            :src="logoGota" 
+            alt="Logo María José - Gota de agua" 
+            class="h-24 w-24 relative z-10 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
+          />
+        </div>
+      </a>
 
-      <!-- Menú de navegación -->
-      <ul class="flex space-x-8">
+      <!-- ===== MENÚ DE NAVEGACIÓN ===== -->
+      <ul class="flex items-center gap-2">
+        <!-- Enlaces de navegación por secciones -->
+        <li><NavLink seccion="#inicio">Inicio</NavLink></li>
+        <li><NavLink seccion="#sobre-mi">Sobre Mí</NavLink></li>
+        <li><NavLink seccion="#proyectos">Proyectos</NavLink></li>
+        <li><NavLink seccion="#articulos">Artículos</NavLink></li>
+        <li><NavLink seccion="#formacion">Formación</NavLink></li>
+        
+        <!-- Botón de contacto (CTA) -->
         <li>
-          <router-link 
-            to="/" 
-            class="text-gray-600 hover:text-teal-600 transition-colors"
-            active-class="text-teal-600 font-semibold"
-          >
-            Inicio
-          </router-link>
-        </li>
-        <li>
-          <router-link 
-            to="/sobre-mi" 
-            class="text-gray-600 hover:text-teal-600 transition-colors"
-            active-class="text-teal-600 font-semibold"
-          >
-            Sobre Mí
-          </router-link>
-        </li>
-        <li>
-          <router-link 
-            to="/proyectos" 
-            class="text-gray-600 hover:text-teal-600 transition-colors"
-            active-class="text-teal-600 font-semibold"
-          >
-            Proyectos
-          </router-link>
-        </li>
-        <li>
-          <router-link 
-            to="/articulos" 
-            class="text-gray-600 hover:text-teal-600 transition-colors"
-            active-class="text-teal-600 font-semibold"
-          >
-            Artículos
-          </router-link>
-        </li>
-        <li>
-          <router-link 
-            to="/formacion" 
-            class="text-gray-600 hover:text-teal-600 transition-colors"
-            active-class="text-teal-600 font-semibold"
-          >
-            Formación
-          </router-link>
-        </li>
-        <li>
-          <router-link 
-            to="/contacto" 
-            class="text-gray-600 hover:text-teal-600 transition-colors"
-            active-class="text-teal-600 font-semibold"
+          <a 
+            href="#contacto" 
+            class="px-4 py-2 text-sm font-medium bg-steel-600 text-white rounded-lg hover:bg-steel-700 shadow-sm hover:shadow-md transition-all duration-200 scroll-smooth"
           >
             Contacto
-          </router-link>
+          </a>
         </li>
       </ul>
+      
     </div>
   </nav>
 </template>
 
 <script setup>
-// Componente de navegación
+// Importar imagen del logo
+import logoGota from '../../assets/images/logo-gota-boton-sin-fondo.png'
+// Componente reutilizable para enlaces de navegación
+import NavLink from '../ui/NavLink.vue'
 </script>
 
 <style scoped>

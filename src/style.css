@@ -1,16 +1,35 @@
+/* Importar Tailwind CSS */
 @import "tailwindcss";
 
-/* Paleta de colores Steel Blue */
-:root {
-  --steel-50: #F4F7FB;
-  --steel-100: #E8EEF6;
-  --steel-200: #CCDBEB;
-  --steel-300: #9FBEDA;
-  --steel-400: #6C9CC4;
-  --steel-500: #5389B7;
-  --steel-600: #376592;
-  --steel-700: #2D5277;
-  --steel-800: #294663;
-  --steel-900: #263C54;
-  --steel-950: #192738;
+/* ===== PALETA DE COLORES STEEL BLUE ===== */
+/* Tonos azul acero para todo el portfolio */
+@theme inline {
+  --color-steel-50: #F4F7FB;   /* Muy claro - fondos suaves */
+  --color-steel-100: #E8EEF6;  /* Claro - fondos hover */
+  --color-steel-200: #CCDBEB;  /* Claro medio - bordes */
+  --color-steel-300: #9FBEDA;  /* Medio claro - elementos secundarios */
+  --color-steel-400: #6C9CC4;  /* Medio - iconos, detalles */
+  --color-steel-500: #5389B7;  /* Base - color principal */
+  --color-steel-600: #376592;  /* Medio oscuro - botones, enlaces */
+  --color-steel-700: #2D5277;  /* Oscuro - texto principal */
+  --color-steel-800: #294663;  /* Muy oscuro - títulos */
+  --color-steel-900: #263C54;  /* Casi negro - énfasis */
+  --color-steel-950: #192738;  /* Negro azulado - footer */
+
+  /* ===== TIPOGRAFÍAS ===== */
+  --font-primary: 'Poppins', sans-serif;     /* Principal - títulos, navegación */
+  --font-secondary: 'Inter', sans-serif;     /* Secundaria - párrafos, texto largo */
+}
+
+/* ===== FUENTES GLOBALES ===== */
+/* Aplicar Poppins como fuente principal en todo el sitio */
+* {
+  font-family: var(--font-primary);
+}
+
+/* Aplicar Inter para párrafos y contenido largo (mejor legibilidad) */
+p,
+article,
+.prose {
+  font-family: var(--font-secondary);
 }
