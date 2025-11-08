@@ -17,13 +17,9 @@
         
         <!-- Nombre con efecto hover -->
         <div class="transition-all duration-500 ease-out group-hover:translate-x-1">
-          <p class="font-bold leading-tight">
-            <span class="text-steel-500 text-base md:text-2xl lg:text-3xl xl:text-4xl transition-colors duration-500 ease-out group-hover:text-steel-600">
-              María José
-            </span>
-            <span class="text-steel-900 text-base md:text-2xl lg:text-3xl xl:text-3xl transition-colors duration-500 ease-out group-hover:text-steel-800">
-              Muñoz Aroca
-            </span>
+          <p class="font-bold leading-tight text-steel-900 text-base md:text-2xl lg:text-3xl xl:text-4xl transition-colors duration-500 ease-out group-hover:text-steel-800">
+            <span class="text-steel-600 transition-colors duration-500 ease-out">M</span>ª<span class="text-steel-600 transition-colors duration-500 ease-out">J</span>osé 
+            Muñoz Aroca
           </p>
         </div>
       </a>

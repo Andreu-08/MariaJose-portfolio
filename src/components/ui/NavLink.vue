@@ -3,12 +3,8 @@
     :href="seccion" 
     :class="claseEnlace"
   >
-    <!-- Indicadores superior e inferior -->
-    <span 
-      v-for="posicion in ['top', 'bottom']"
-      :key="posicion"
-      :class="claseIndicador(posicion)"
-    />
+    <!-- Indicador inferior -->
+    <span :class="claseIndicador" />
     
     <!-- Fondo al estar activo -->
     <span :class="claseFondo" />
@@ -46,12 +42,11 @@ const claseEnlace = computed(() => [
     : 'text-steel-700 hover:text-steel-600'
 ])
 
-const claseIndicador = (posicion) => [
-  'absolute left-0 h-0.5 bg-linear-to-r from-steel-500 to-steel-600 rounded-full',
+const claseIndicador = computed(() => [
+  'absolute bottom-0 left-0 h-0.5 bg-linear-to-r from-steel-500 to-steel-600 rounded-full',
   TRANSICION_BASE,
-  posicion === 'top' ? 'top-0' : 'bottom-0',
   props.activa ? 'w-full' : 'w-0'
-]
+])
 
 const claseFondo = computed(() => [
   'absolute inset-0 bg-steel-100 rounded-lg',
