@@ -20,6 +20,10 @@ export default {
           900: '#263C54',
           950: '#192738'
         }
+      },
+      backgroundImage: {
+        'linear-to-br': 'linear-gradient(to bottom right, var(--tw-gradient-stops))',
+        'linear-to-r': 'linear-gradient(to right, var(--tw-gradient-stops))',
       }
     },
   },

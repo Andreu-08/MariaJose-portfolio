@@ -2,12 +2,13 @@
   <a 
     :href="seccion" 
     :class="claseEnlace"
+    :aria-current="activa ? 'page' : undefined"
   >
     <!-- Indicador inferior -->
-    <span :class="claseIndicador" />
+    <span :class="claseIndicador" aria-hidden="true" />
     
     <!-- Fondo al estar activo -->
-    <span :class="claseFondo" />
+    <span :class="claseFondo" aria-hidden="true" />
     
     <!-- Texto del enlace -->
     <span class="relative z-10">

@@ -1,6 +1,12 @@
 <template>
-  <div v-if="menuAbierto" class="md:hidden mt-4 py-4 border-t border-steel-100">
-    <ul class="flex flex-col gap-3">
+  <div 
+    v-if="menuAbierto" 
+    id="menu-movil"
+    class="md:hidden mt-4 py-4 border-t border-steel-100"
+    role="region"
+    aria-label="Menú de navegación móvil"
+  >
+    <ul class="flex flex-col gap-3" role="list">
       <li 
         v-for="enlace in ENLACES" 
         :key="enlace.id" 
@@ -15,8 +21,12 @@
       </li>
       
       <li @click="emit('cerrar')">
-        <a href="#contacto" :class="claseBotonContacto">
-          <span :class="claseBrilloContacto" />
+        <a 
+          href="#contacto" 
+          :class="claseBotonContacto"
+          :aria-current="seccionActiva === 'contacto' ? 'page' : undefined"
+        >
+          <span :class="claseBrilloContacto" aria-hidden="true" />
           <span class="relative z-10">Contacto</span>
         </a>
       </li>
