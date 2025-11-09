@@ -1,20 +1,18 @@
 <template>
 
   <!-- ===== SECCIÓN INICIO ===== -->
-
-  <!-- TODO: Ajsutar el modo mvl -->
-
   <section 
     id="inicio" 
-    class="relative  flex items-center scroll-mt-20 fondo-inicio"
+    class="relative min-h-screen flex items-center scroll-mt-20 fondo-inicio py-24 md:py-0"
   >
     <!-- ===== Contenido principal ===== -->
     <div class="relative z-10 w-full h-full flex items-center justify-center">
-      <div class="container mx-auto px-6 ">
-        <!-- Grid de dos columnas: texto más ancho, imagen fija -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-2 items-center">
+      <div class="container mx-auto px-6">
+        <!-- Grid responsive: 1 columna en móvil, 2 en desktop -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-2 items-center">
           
-          <div class="lg:col-span-7 space-y-5">
+          <!-- ===== COLUMNA IZQUIERDA: Contenido de texto ===== -->
+          <div class="lg:col-span-7 space-y-5 order-1">
             <!-- Badge de especialidad -->
             <SpecialtyBadge 
               texto="Innovación en Tratamiento de Agua"
@@ -30,21 +28,21 @@
             <CTAButtons url-linkedin="https://linkedin.com" />
           </div>
 
-          <!-- ===== COLUMNA DERECHA: Imagen (5 columnas = 42%) ===== -->
+          <!-- ===== COLUMNA DERECHA: Imagen ===== -->
           <div 
             v-motion
-            :initial="{ opacity: 0, x: 50 }"
-            :visible="{ opacity: 1, x: 0 }"
+            :initial="{ opacity: 0, y: 30 }"
+            :visible="{ opacity: 1, y: 0 }"
             :delay="300"
-            class="lg:col-span-5 relative hidden lg:flex justify-center items-end h-[750px]"
+            class="lg:col-span-5 relative flex justify-center items-end h-[400px] md:h-[500px] lg:h-[750px] order-2"
           >
             <!-- Contenedor con máscara de gradiente -->
-            <div class="relative h-full">
+            <div class="relative h-full w-full max-w-md lg:max-w-none">
               <!-- Imagen de la persona -->
               <img 
-                src="@/assets/images/perfil.png" 
+                src="@/assets/images/perfil-inicio.png" 
                 alt="María José Muñoz Aroca - Técnica en tratamiento de agua"
-                class="h-full w-auto object-contain object-bottom"
+                class="h-full w-auto mx-auto object-contain object-bottom"
                 style="filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.1));"
                 @error="imagenNoEncontrada = true"
               />

@@ -33,28 +33,10 @@
 <script setup>
 import { Linkedin, Mail } from 'lucide-vue-next'
 
-/**
- * Componente CTAButtons (Call To Action Buttons)
- * 
- * Botones de llamada a la acción para la sección hero.
- * Incluye acceso a LinkedIn y navegación al formulario de contacto.
- * 
- * Props:
- * @prop {String} urlLinkedin - URL del perfil de LinkedIn
- * 
- * Características:
- * - Animación de entrada coordinada
- * - Dos variantes: primario (LinkedIn) y secundario (Contacto)
- * - Iconos de Lucide integrados
- * - Efectos hover y scale
- * - Focus states accesibles
- * - Links con rel y target apropiados
- */
-
 defineProps({
   urlLinkedin: {
     type: String,
-    default: 'https://linkedin.com'
+    default: 'http://linkedin.com/in/mª-josé-muñoz-aroca-75151716b'
   }
 })
 </script>
