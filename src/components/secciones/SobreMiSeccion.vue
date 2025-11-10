@@ -16,9 +16,6 @@
 </script>
 
 <style scoped>
-/**
- * Fondo de la sección sobre mí
- */
 .fondo-sobremi {
   background-image: url('@/assets/images/fondo-sobremi.png');
   background-size: cover;

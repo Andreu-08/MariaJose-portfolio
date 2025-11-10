@@ -1,31 +1,16 @@
 <template>
-  <div 
-    v-if="menuAbierto" 
-    id="menu-movil"
-    class="md:hidden mt-4 py-4 border-t border-steel-100"
-    role="region"
-    aria-label="Menú de navegación móvil"
-  >
+  <div v-if="menuAbierto" id="menu-movil" class="md:hidden mt-4 py-4 border-t border-steel-100" role="region"
+    aria-label="Menú de navegación móvil">
     <ul class="flex flex-col gap-3" role="list">
-      <li 
-        v-for="enlace in ENLACES" 
-        :key="enlace.id" 
-        @click="emit('cerrar')"
-      >
-        <NavLink 
-          :seccion="enlace.seccion" 
-          :activa="seccionActiva === enlace.id"
-        >
+      <li v-for="enlace in ENLACES" :key="enlace.id" @click="emit('cerrar')">
+        <NavLink :seccion="enlace.seccion" :activa="seccionActiva === enlace.id">
           {{ enlace.texto }}
         </NavLink>
       </li>
-      
+
       <li @click="emit('cerrar')">
-        <a 
-          href="#contacto" 
-          :class="claseBotonContacto"
-          :aria-current="seccionActiva === 'contacto' ? 'page' : undefined"
-        >
+        <a href="#contacto" :class="claseBotonContacto"
+          :aria-current="seccionActiva === 'contacto' ? 'page' : undefined">
           <span :class="claseBrilloContacto" aria-hidden="true" />
           <span class="relative z-10">Contacto</span>
         </a>

@@ -34,14 +34,7 @@
         <li><NavLink seccion="#proyectos" :activa="seccionActiva === 'proyectos'">Proyectos</NavLink></li>
         <li><NavLink seccion="#formacion" :activa="seccionActiva === 'formacion'">Formación</NavLink></li>
         <li>
-          <a 
-            href="#contacto" 
-            :class="claseBotonContacto"
-            :aria-current="seccionActiva === 'contacto' ? 'page' : undefined"
-          >
-            <span :class="claseBrilloContacto" aria-hidden="true" />
-            <span class="relative z-10">Contacto</span>
-          </a>
+          <ContactoButton variante="oscuro" />
         </li>
       </ul>
 
@@ -71,15 +64,15 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import NavLink from '../ui/NavLink.vue'
 import MenuMovil from '../ui/MenuMovil.vue'
+import ContactoButton from '../ui/ContactoButton.vue'
 import logoGota from '../../assets/images/logo-gota-boton-sin-fondo.png'
 
 // ===== CONFIGURACIÓN =====
 const SECCIONES = ['inicio', 'sobre-mi', 'proyectos', 'formacion', 'contacto']
 const OFFSET_HEADER = 150
-const TRANSICION_LENTA = 'duration-500 ease-out'
 
 // ===== ESTADO REACTIVO =====
 const menuAbierto = ref(false)
@@ -99,21 +92,6 @@ const detectarSeccion = () => {
     seccionActiva.value = seccionVisible
   }
 }
-
-// ===== CLASES COMPUTADAS =====
-const claseBotonContacto = computed(() => [
-  'relative px-4 py-2 text-sm lg:text-base font-medium rounded-lg text-white overflow-hidden transition-all',
-  TRANSICION_LENTA,
-  seccionActiva.value === 'contacto' 
-    ? 'bg-steel-700 shadow-lg scale-105 animate-pulse-subtle' 
-    : 'bg-steel-600 hover:bg-steel-700 hover:shadow-md hover:-translate-y-0.5'
-])
-
-const claseBrilloContacto = computed(() => [
-  'absolute inset-0 bg-white/10 transition-opacity',
-  TRANSICION_LENTA,
-  seccionActiva.value === 'contacto' ? 'opacity-100' : 'opacity-0'
-])
 
 // ===== LIFECYCLE HOOKS =====
 onMounted(() => {

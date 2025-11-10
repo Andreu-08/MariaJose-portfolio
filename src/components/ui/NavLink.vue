@@ -1,15 +1,11 @@
 <template>
-  <a 
-    :href="seccion" 
-    :class="claseEnlace"
-    :aria-current="activa ? 'page' : undefined"
-  >
+  <a :href="seccion" :class="claseEnlace" :aria-current="activa ? 'page' : undefined">
     <!-- Indicador inferior -->
     <span :class="claseIndicador" aria-hidden="true" />
-    
+
     <!-- Fondo al estar activo -->
     <span :class="claseFondo" aria-hidden="true" />
-    
+
     <!-- Texto del enlace -->
     <span class="relative z-10">
       <slot />
@@ -38,8 +34,8 @@ const TRANSICION_BASE = 'transition-all duration-500 ease-out'
 const claseEnlace = computed(() => [
   'relative px-4 py-2 text-sm lg:text-base font-medium whitespace-nowrap',
   TRANSICION_BASE,
-  props.activa 
-    ? 'text-steel-600 font-bold' 
+  props.activa
+    ? 'text-steel-600 font-bold'
     : 'text-steel-700 hover:text-steel-600'
 ])
 

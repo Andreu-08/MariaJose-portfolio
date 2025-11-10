@@ -1,6 +1,5 @@
 <template>
   <!-- ===== PÁGINA PRINCIPAL ===== -->
-  <!-- Contiene todas las secciones del portfolio en una sola página -->
   <div class="scroll-smooth">
     
     <!-- Sección: Inicio/Presentación -->
@@ -31,8 +30,9 @@ import ContactoSeccion from '../components/secciones/ContactoSeccion.vue'
 </script>
 
 <style scoped>
-/* Desplazamiento suave entre secciones */
+
 html {
   scroll-behavior: smooth;
 }
+
 </style>

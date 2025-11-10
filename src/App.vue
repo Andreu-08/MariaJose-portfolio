@@ -6,12 +6,11 @@ import PaginaPrincipal from './views/PaginaPrincipal.vue'
 </script>
 
 <template>
-  <!-- Contenedor principal con altura completa y fondo degradado -->
-  <div class="min-h-screen flex flex-col bg-steel-50">
-    <!-- Cabecera del sitio (fija) -->
+  <div>
+    <!-- Cabecera del sitio -->
     <Header />
-    <!-- Contenido principal: todas las secciones del portfolio -->
-    <main class="flex-1">
+    <!-- Contenido principal -->
+    <main>
       <PaginaPrincipal />
     </main>
     <!-- Pie de página -->

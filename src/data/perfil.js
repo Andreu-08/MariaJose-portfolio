@@ -1,6 +1,5 @@
 /**
- * Datos del perfil profesional
- * Centraliza toda la información personal y profesional
+ * Datos del perfil
  */
 
 export const perfil = {
