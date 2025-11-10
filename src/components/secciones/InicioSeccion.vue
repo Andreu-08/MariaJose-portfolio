@@ -25,7 +25,7 @@
             <KeywordsList :palabras-clave="palabrasClave" />
             
             <!-- Botones de CTA -->
-            <CTAButtons url-linkedin="https://linkedin.com" />
+            <CTAButtons />
           </div>
 
           <!-- ===== COLUMNA DERECHA: Imagen ===== -->

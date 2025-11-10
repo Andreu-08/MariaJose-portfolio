@@ -32,7 +32,7 @@ import { Linkedin, Mail } from 'lucide-vue-next'
 defineProps({
   urlLinkedin: {
     type: String,
-    default: 'http://linkedin.com/in/mª-josé-muñoz-aroca-75151716b'
+    default: "https://www.linkedin.com/in/m%C2%AA-jos%C3%A9-mu%C3%B1oz-aroca-75151716b/"
   }
 })
 </script>
