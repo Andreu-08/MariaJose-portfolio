@@ -14,15 +14,13 @@
           <!-- ===== COLUMNA IZQUIERDA: Contenido de texto ===== -->
           <div class="lg:col-span-7 space-y-5 order-1">
             <!-- Badge de especialidad -->
-            <SpecialtyBadge 
-              texto="Innovación en Tratamiento de Agua"
-            />
+            <SpecialtyBadge />
             
             <!-- Título principal -->
             <HeroTitle />
             
             <!-- Lista de palabras clave -->
-            <KeywordsList :palabras-clave="palabrasClave" />
+            <KeywordsList />
             
             <!-- Botones de CTA -->
             <CTAButtons />
@@ -36,8 +34,8 @@
             <div class="relative h-full w-full max-w-md lg:max-w-none">
               <!-- Imagen de la persona -->
               <img 
-                src="@/assets/images/perfil-inicio2.png" 
-                alt="María José Muñoz Aroca - Técnica en tratamiento de agua"
+                :src="imagenPerfil" 
+                :alt="`${perfil.nombre} - Técnica en tratamiento de agua`"
                 class="h-full w-auto mx-auto object-contain object-bottom"
                 style="filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.1));"
                 @error="imagenNoEncontrada = true"
@@ -53,21 +51,15 @@
 
 <script setup>
 import { ref } from 'vue'
+import { perfil } from '@/data/perfil.js'
 import SpecialtyBadge from '@/components/ui/SpecialtyBadge.vue'
 import HeroTitle from '@/components/ui/HeroTitle.vue'
 import KeywordsList from '@/components/ui/KeywordsList.vue'
 import CTAButtons from '@/components/ui/CTAButtons.vue'
+import imagenPerfil from '@/assets/images/perfil-inicio2.png'
 
 // Control de error de carga de imagen
 const imagenNoEncontrada = ref(false)
-
-// Palabras clave que representan las áreas de especialización
-const palabrasClave = [
-  'Sostenibilidad',
-  'Innovación',
-  'Automatización',
-  'Análisis de Datos',
-]
 </script>
 
 <style scoped>

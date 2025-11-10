@@ -11,17 +11,11 @@
     
     <!-- Texto del badge -->
     <span class="text-sm font-medium text-steel-700">
-      {{ texto }}
+      {{ perfil.hero.especialidad }}
     </span>
   </div>
 </template>
 
 <script setup>
-
-defineProps({
-  texto: {
-    type: String,
-    required: true
-  }
-})
+import { perfil } from '@/data/perfil.js'
 </script>

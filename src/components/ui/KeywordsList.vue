@@ -23,28 +23,7 @@
 </template>
 
 <script setup>
-/**
- * Componente KeywordsList
- * 
- * Lista horizontal de palabras clave con separadores visuales.
- * Muestra las áreas de especialización o conceptos destacados.
- * 
- * Props:
- * @prop {Array<string>} palabrasClave - Array de palabras clave a mostrar
- * 
- * Características:
- * - Animación de entrada suave
- * - Separadores visuales entre elementos
- * - Efecto hover en cada palabra
- * - Responsive con wrap automático
- */
+import { perfil } from '@/data/perfil.js'
 
-defineProps({
-  palabrasClave: {
-    type: Array,
-    required: true,
-    default: () => [],
-    validator: (value) => Array.isArray(value) && value.every(item => typeof item === 'string')
-  }
-})
+const palabrasClave = perfil.hero.palabrasClave
 </script>
