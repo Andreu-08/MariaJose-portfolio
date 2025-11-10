@@ -30,17 +30,13 @@
 
           <!-- ===== COLUMNA DERECHA: Imagen ===== -->
           <div 
-            v-motion
-            :initial="{ opacity: 0, y: 30 }"
-            :visible="{ opacity: 1, y: 0 }"
-            :delay="300"
             class="lg:col-span-5 relative flex justify-center items-end h-[400px] md:h-[500px] lg:h-[750px] order-2"
           >
             <!-- Contenedor con máscara de gradiente -->
             <div class="relative h-full w-full max-w-md lg:max-w-none">
               <!-- Imagen de la persona -->
               <img 
-                src="@/assets/images/perfil-inicio.png" 
+                src="@/assets/images/perfil-inicio2.png" 
                 alt="María José Muñoz Aroca - Técnica en tratamiento de agua"
                 class="h-full w-auto mx-auto object-contain object-bottom"
                 style="filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.1));"

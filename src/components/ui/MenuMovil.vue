@@ -56,7 +56,6 @@ const ENLACES = [
   { id: 'inicio', seccion: '#inicio', texto: 'Inicio' },
   { id: 'sobre-mi', seccion: '#sobre-mi', texto: 'Sobre Mí' },
   { id: 'proyectos', seccion: '#proyectos', texto: 'Proyectos' },
-  { id: 'articulos', seccion: '#articulos', texto: 'Artículos' },
   { id: 'formacion', seccion: '#formacion', texto: 'Formación' }
 ]
 

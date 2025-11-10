@@ -12,9 +12,6 @@
     <!-- Sección: Proyectos -->
     <ProyectosSeccion />
     
-    <!-- Sección: Artículos -->
-    <ArticulosSeccion />
-    
     <!-- Sección: Formación -->
     <FormacionSeccion />
     
@@ -29,7 +26,6 @@
 import InicioSeccion from '../components/secciones/InicioSeccion.vue'
 import SobreMiSeccion from '../components/secciones/SobreMiSeccion.vue'
 import ProyectosSeccion from '../components/secciones/ProyectosSeccion.vue'
-import ArticulosSeccion from '../components/secciones/ArticulosSeccion.vue'
 import FormacionSeccion from '../components/secciones/FormacionSeccion.vue'
 import ContactoSeccion from '../components/secciones/ContactoSeccion.vue'
 </script>

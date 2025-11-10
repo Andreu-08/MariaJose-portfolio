@@ -1,9 +1,5 @@
 <template>
   <div 
-    v-motion
-    :initial="{ opacity: 0, y: 20 }"
-    :visible="{ opacity: 1, y: 0 }"
-    :delay="500"
     class="flex flex-wrap items-center gap-3 text-lg md:text-xl text-steel-700"
   >
     <template v-for="(palabraClave, indice) in palabrasClave" :key="palabraClave">

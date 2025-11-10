@@ -1,9 +1,5 @@
 <template>
   <div 
-    v-motion
-    :initial="{ opacity: 0, y: 20 }"
-    :visible="{ opacity: 1, y: 0 }"
-    :delay="600"
     class="flex flex-wrap gap-4"
   >
     <!-- Botón LinkedIn (Primario) -->

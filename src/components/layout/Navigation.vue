@@ -32,7 +32,6 @@
         <li><NavLink seccion="#inicio" :activa="seccionActiva === 'inicio'">Inicio</NavLink></li>
         <li><NavLink seccion="#sobre-mi" :activa="seccionActiva === 'sobre-mi'">Sobre Mí</NavLink></li>
         <li><NavLink seccion="#proyectos" :activa="seccionActiva === 'proyectos'">Proyectos</NavLink></li>
-        <li><NavLink seccion="#articulos" :activa="seccionActiva === 'articulos'">Artículos</NavLink></li>
         <li><NavLink seccion="#formacion" :activa="seccionActiva === 'formacion'">Formación</NavLink></li>
         <li>
           <a 
@@ -78,7 +77,7 @@ import MenuMovil from '../ui/MenuMovil.vue'
 import logoGota from '../../assets/images/logo-gota-boton-sin-fondo.png'
 
 // ===== CONFIGURACIÓN =====
-const SECCIONES = ['inicio', 'sobre-mi', 'proyectos', 'articulos', 'formacion', 'contacto']
+const SECCIONES = ['inicio', 'sobre-mi', 'proyectos', 'formacion', 'contacto']
 const OFFSET_HEADER = 150
 const TRANSICION_LENTA = 'duration-500 ease-out'
 

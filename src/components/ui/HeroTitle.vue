@@ -3,10 +3,6 @@
     <!-- Línea 1: Texto normal -->
     <div class="overflow-hidden">
       <span 
-        v-motion
-        :initial="{ opacity: 0, y: 50 }"
-        :visible="{ opacity: 1, y: 0 }"
-        :delay="200"
         class="block text-5xl md:text-6xl lg:text-7xl font-bold text-steel-900 leading-tight"
       >
         Técnica en
@@ -16,10 +12,6 @@
     <!-- Línea 2: Con gradiente -->
     <div class="overflow-hidden">
       <span 
-        v-motion
-        :initial="{ opacity: 0, y: 50 }"
-        :visible="{ opacity: 1, y: 0 }"
-        :delay="300"
         class="block text-5xl md:text-6xl lg:text-7xl font-bold bg-linear-to-r from-steel-600 via-steel-500 to-steel-600 bg-clip-text text-transparent leading-tight"
       >
         tratamiento y
@@ -29,10 +21,6 @@
     <!-- Línea 3: Con gradiente -->
     <div class="overflow-hidden">
       <span 
-        v-motion
-        :initial="{ opacity: 0, y: 50 }"
-        :visible="{ opacity: 1, y: 0 }"
-        :delay="400"
         class="block text-5xl md:text-6xl lg:text-7xl font-bold bg-linear-to-r from-steel-600 via-steel-500 to-steel-600 bg-clip-text text-transparent leading-tight"
       >
         calidad del agua
