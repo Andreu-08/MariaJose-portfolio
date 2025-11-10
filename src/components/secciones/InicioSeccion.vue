@@ -14,14 +14,15 @@
             <CTAButtons />
           </div>
 
-          <!-- ===== COLUMNA DERECHA: Imagen ===== -->
+          <!-- ===== COLUMNA DERECHA: Imagen con efecto 3D ===== -->
           <div class="lg:col-span-5 relative flex justify-center items-end h-[400px] md:h-[500px] lg:h-[750px] order-2">
-            <div class="relative h-full w-full max-w-md lg:max-w-none">
-              <!-- Imagen de la persona -->
-              <img :src="imagenPerfil" :alt="`${perfil.nombre} - Técnica en tratamiento de agua`"
-                class="h-full w-auto mx-auto object-contain object-bottom"
-                style="filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.1));" @error="imagenNoEncontrada = true" />
-            </div>
+            <Imagen3D 
+              :src="imagenPerfil"
+              :alt="`${perfil.nombre} - Técnica en tratamiento de agua`"
+              :intensidad="12"
+              :escala-hover="1.03"
+              @error="imagenNoEncontrada = true"
+            />
           </div>
 
         </div>
@@ -37,6 +38,7 @@ import SpecialtyBadge from '@/components/ui/SpecialtyBadge.vue'
 import HeroTitle from '@/components/ui/HeroTitle.vue'
 import KeywordsList from '@/components/ui/KeywordsList.vue'
 import CTAButtons from '@/components/ui/CTAButtons.vue'
+import Imagen3D from '@/components/ui/Imagen3D.vue'
 import imagenPerfil from '@/assets/images/perfil-inicio2.png'
 
 const imagenNoEncontrada = ref(false)
