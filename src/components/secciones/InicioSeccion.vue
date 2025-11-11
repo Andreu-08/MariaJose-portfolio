@@ -8,17 +8,8 @@
 
           <!-- ===== COLUMNA IZQUIERDA: Contenido de texto ===== -->
           <div class="lg:col-span-7 space-y-5 order-1">
-            <div ref="badge" style="opacity: 0; transform: scale(0.8) rotate(-5deg); filter: blur(10px);">
-              <SpecialtyBadge />
-            </div>
-            <div ref="title" style="opacity: 0; transform: scale(0.9) translateY(30px); filter: blur(8px);">
-              <HeroTitle />
-            </div>
-            <div ref="keywords" style="opacity: 0; transform: scale(0.8); filter: blur(10px);">
-              <KeywordsList />
-            </div>
-            <div ref="buttons" style="opacity: 0; transform: scale(0.85) rotate(3deg); filter: blur(10px);">
-              <CTAButtons />
+            <div v-for="(item, index) in elementos" :key="index" :ref="el => elementRefs[index] = el" :style="item.style">
+              <component :is="item.component" />
             </div>
           </div>
 
@@ -50,56 +41,37 @@ import Imagen3D from '@/components/ui/Imagen3D.vue'
 import imagenPerfil from '@/assets/images/perfil-inicio2.png'
 
 const imagenNoEncontrada = ref(false)
-
-// Refs para los elementos a animar
-const badge = ref(null)
-const title = ref(null)
-const keywords = ref(null)
-const buttons = ref(null)
 const imagen = ref(null)
+const elementRefs = ref([])
+
+const elementos = [
+  { component: SpecialtyBadge, style: 'opacity: 0; transform: scale(0.8) rotate(-5deg); filter: blur(10px);' },
+  { component: HeroTitle, style: 'opacity: 0; transform: scale(0.9) translateY(30px); filter: blur(8px);' },
+  { component: KeywordsList, style: 'opacity: 0; transform: scale(0.8); filter: blur(10px);' },
+  { component: CTAButtons, style: 'opacity: 0; transform: scale(0.85) rotate(3deg); filter: blur(10px);' }
+]
+
+const animaciones = [
+  { scale: [0.8, 1], rotate: ['-5deg', '0deg'], filter: ['blur(10px)', 'blur(0px)'], easing: 'easeOutElastic(1, .6)' },
+  { scale: [0.9, 1], translateY: [30, 0], filter: ['blur(8px)', 'blur(0px)'], easing: 'easeOutExpo' },
+  { scale: [0.8, 1], filter: ['blur(10px)', 'blur(0px)'], easing: 'easeOutBack' },
+  { scale: [0.85, 1], rotate: ['3deg', '0deg'], filter: ['blur(10px)', 'blur(0px)'], easing: 'easeOutElastic(1, .5)' }
+]
 
 onMounted(async () => {
-  // Importar animejs desde CDN
   const anime = await import('https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.es.js')
   
-  anime.default.timeline({
-    easing: 'easeOutElastic(1, .6)'
+  const timeline = anime.default.timeline()
+  
+  animaciones.forEach((anim, index) => {
+    timeline.add({
+      targets: elementRefs.value[index],
+      opacity: [0, 1],
+      duration: 1400,
+      delay: index === 0 ? 300 : 0,
+      ...anim
+    }, index === 0 ? 0 : '-=1000')
   })
-  .add({
-    targets: badge.value,
-    opacity: [0, 1],
-    scale: [0.8, 1],
-    rotate: ['-5deg', '0deg'],
-    filter: ['blur(10px)', 'blur(0px)'],
-    duration: 1400,
-    delay: 300
-  })
-  .add({
-    targets: title.value,
-    opacity: [0, 1],
-    scale: [0.9, 1],
-    translateY: [30, 0],
-    filter: ['blur(8px)', 'blur(0px)'],
-    duration: 1400,
-    easing: 'easeOutExpo'
-  }, '-=1000')
-  .add({
-    targets: keywords.value,
-    opacity: [0, 1],
-    scale: [0.8, 1],
-    filter: ['blur(10px)', 'blur(0px)'],
-    duration: 1400,
-    easing: 'easeOutBack'
-  }, '-=1000')
-  .add({
-    targets: buttons.value,
-    opacity: [0, 1],
-    scale: [0.85, 1],
-    rotate: ['3deg', '0deg'],
-    filter: ['blur(10px)', 'blur(0px)'],
-    duration: 1400,
-    easing: 'easeOutElastic(1, .5)'
-  }, '-=1000')
   
   anime.default({
     targets: imagen.value,
