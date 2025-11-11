@@ -12,7 +12,7 @@ export const perfil = {
   // Sección Hero/Inicio
   hero: {
     // Badge de especialidad
-    especialidad: 'Innovación en Tratamiento de Agua',
+    especialidad: 'Portfolio Personal',
     
     // Título principal (array de líneas)
     titulo: [
