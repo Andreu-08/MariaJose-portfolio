@@ -32,7 +32,6 @@
         <li><NavLink seccion="#inicio" :activa="seccionActiva === 'inicio'">Inicio</NavLink></li>
         <li><NavLink seccion="#sobre-mi" :activa="seccionActiva === 'sobre-mi'">Sobre Mí</NavLink></li>
         <li><NavLink seccion="#proyectos" :activa="seccionActiva === 'proyectos'">Proyectos</NavLink></li>
-        <li><NavLink seccion="#formacion" :activa="seccionActiva === 'formacion'">Formación</NavLink></li>
         <li>
           <ContactoButton variante="oscuro" />
         </li>

@@ -3,32 +3,32 @@
   <section 
     ref="seccion"
     id="sobre-mi" 
-    class="relative min-h-screen flex items-center justify-center px-4 scroll-mt-20 bg-steel-200 py-20 overflow-hidden"
+    class="relative flex md:min-h-screen items-start md:items-center justify-center px-8 md:px-4 scroll-mt-20 bg-steel-200 pt-24 pb-12 md:py-20 overflow-hidden"
   >
     <div class="container mx-auto max-w-4xl">
       <div class="relative z-10">
         <!-- Título con efecto máquina de escribir -->
-        <div class="flex items-center gap-4 mb-12">
-          <h2 class="text-5xl md:text-6xl font-bold text-steel-900">
+        <div class="flex items-center gap-3 md:gap-4 mb-10 md:mb-12">
+          <h2 class="text-3xl md:text-5xl lg:text-6xl font-bold text-steel-900">
             <span ref="tituloMaquina"></span>
             <span 
               ref="cursorTitulo"
-              class="inline-block w-1 h-12 md:h-16 bg-steel-900 ml-1 animate-pulse"
+              class="inline-block w-0.5 md:w-1 h-8 md:h-12 lg:h-16 bg-steel-900 ml-1 animate-pulse"
               style="display: none;"
             ></span>
           </h2>
-          <div class="flex-1 h-1 bg-gradient-to-r from-steel-500 to-transparent rounded-full"></div>
+          <div class="flex-1 h-0.5 md:h-1 bg-gradient-to-r from-steel-500 to-transparent rounded-full"></div>
         </div>
 
         <!-- Contenedor de párrafos -->
-        <div class="space-y-8">
+        <div class="space-y-8 md:space-y-8">
           <div 
             v-for="(parrafo, index) in parrafos" 
             :key="index"
             :ref="el => parrafosRefs[index] = el"
             :class="[
-              'text-lg md:text-xl text-steel-800 leading-relaxed opacity-0 text-justify',
-              index > 0 ? 'pl-8 border-l-4' : '',
+              'text-sm md:text-lg lg:text-xl text-steel-800 leading-relaxed opacity-0 text-justify',
+              index > 0 ? 'pl-4 md:pl-8 border-l-2 md:border-l-4' : '',
               index === 1 ? 'border-steel-500' : '',
               index === 2 ? 'border-steel-600 font-medium' : ''
             ]"

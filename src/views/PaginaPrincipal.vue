@@ -10,10 +10,7 @@
     
     <!-- Sección: Proyectos -->
     <ProyectosSeccion />
-    
-    <!-- Sección: Formación -->
-    <FormacionSeccion />
-    
+
     <!-- Sección: Contacto -->
     <ContactoSeccion />
     
@@ -25,7 +22,6 @@
 import InicioSeccion from '../components/secciones/InicioSeccion.vue'
 import SobreMiSeccion from '../components/secciones/SobreMiSeccion.vue'
 import ProyectosSeccion from '../components/secciones/ProyectosSeccion.vue'
-import FormacionSeccion from '../components/secciones/FormacionSeccion.vue'
 import ContactoSeccion from '../components/secciones/ContactoSeccion.vue'
 </script>
 
